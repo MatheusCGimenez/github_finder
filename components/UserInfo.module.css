@@ -1,0 +1,28 @@
+.userinfo_container {
+  margin: 4rem 30%;
+  background-color: #0077b6;
+  outline: 3px solid #03045e;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+
+  .user_avatar {
+    margin-top: 1rem;
+    img {
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      outline: 3px solid #03045e;
+    }
+  }
+
+  .user_username {
+    h2 {
+      color: #caf0f8;
+    }
+  }
+
+  .user_details_account {
+    
+  }
+}
