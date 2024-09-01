@@ -6,13 +6,16 @@ import { UserProps } from "../types/User";
 interface Props {
   loadUser: (username: string) => Promise<void>;
   setUser: React.Dispatch<SetStateAction<UserProps | null>>;
+  error: boolean;
+  setError: React.Dispatch<SetStateAction<boolean>>;
 }
 
-const Search = ({ loadUser }: Props) => {
+const Search = ({ loadUser, error, setError }: Props) => {
   const [userName, setUserName] = useState<string>("");
 
   const handleOnSubmit = (e: FormEvent) => {
     e.preventDefault();
+    setError(false);
     if (!userName) {
       console.log("Houve um erro, não veio usuário!");
     }
@@ -47,6 +50,11 @@ const Search = ({ loadUser }: Props) => {
           <IoSearchSharp className={styles.icon} />
         </button>
       </form>
+      {error && (
+        <div className={styles.error_msg}>
+          <h1>Houve um erro ao obter usuário.</h1>
+        </div>
+      )}
     </div>
   );
 };

@@ -19,25 +19,34 @@ const UserInfo = ({ user }: Props) => {
 
   return (
     <>
-      {error ? (
-        <h1>Houve erro</h1>
+      {user === null ? (
+        <h1>Pesquise por algum usuário</h1>
       ) : (
         <div className={styles.userinfo_container}>
           <div className={styles.user_avatar}>
-            <img src={user?.avatar_url} alt={user?.login} />
+            <a href={user.avatar_url} target="_blank">
+              <img src={user?.avatar_url} alt={user?.login} />
+            </a>
           </div>
           <div className={styles.user_username}>
             <h2>{user?.login}</h2>
           </div>
+          <hr />
           <div className={styles.user_details_account}>
-            <span>Criada em</span>
-            <p>
-              {new Date(
-                user?.created_at ? user.created_at : Date.now()
-              ).toLocaleString("pt-BR")}
-            </p>
-            <p>{user?.location}</p>
+            <div className={styles.account_createdat}>
+              <span>Data de criação</span>
+              <p>
+                {new Date(
+                  user?.created_at ? user.created_at : Date.now()
+                ).toLocaleString("pt-BR")}
+              </p>
+            </div>
+            <div className={styles.account_location}>
+              <span>Local de criação</span>
+              <p>{user?.location ? user.location : "Não definido."}</p>
+            </div>
           </div>
+          <hr />
         </div>
       )}
     </>

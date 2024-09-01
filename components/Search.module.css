@@ -4,6 +4,7 @@
   background-color: #0077b6;
   outline: 3px solid #03045e;
   border-radius: 30px;
+  min-height: 350px;
 
   hr {
     margin: 1rem 0;
@@ -65,5 +66,10 @@
     button .icon:hover {
       cursor: pointer;
     }
+  }
+
+  .error_msg{
+    color: rgb(253, 133, 133);
+    margin-top: 2rem;
   }
 }

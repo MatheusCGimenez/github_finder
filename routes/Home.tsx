@@ -6,11 +6,17 @@ import UserInfo from "../components/UserInfo";
 
 const Home = () => {
   const [user, setUser] = useState<UserProps | null>(null);
+  const [error, setError] = useState<boolean>(false);
 
   const loadUser = async (username: string): Promise<void> => {
-    const res = await axios.get("https://api.github.com/users/" + username);
-    const data = await res.data;
-    setUser(data);
+    try {
+      const res = await axios.get("https://api.github.com/users/" + username);
+      const data = await res.data;
+      setUser(data);
+    } catch (error) {
+      setError(true);
+      console.error(error);
+    }
   };
 
   useEffect(() => {
@@ -19,7 +25,7 @@ const Home = () => {
 
   return (
     <div>
-      <Search loadUser={loadUser} setUser={setUser} />
+      <Search loadUser={loadUser} setUser={setUser} error={error} setError={setError} />
       <UserInfo user={user} />
     </div>
   );

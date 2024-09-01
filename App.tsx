@@ -6,6 +6,7 @@ function App() {
     <div className="container">
         <h1>GITHUB FINDER</h1>
         <Outlet />
+        {/* TODO Tenho que ajustar a API */}
     </div>
   );
 }

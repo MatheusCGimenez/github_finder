@@ -5,6 +5,14 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
+  min-height: 350px;
+  padding: 1.5rem;
+
+  hr {
+    margin: 1rem 4rem;
+    opacity: 0.5;
+    color: gray;
+  }
 
   .user_avatar {
     margin-top: 1rem;
@@ -12,7 +20,9 @@
       height: 150px;
       width: 150px;
       border-radius: 50%;
-      outline: 3px solid #03045e;
+      outline: 3px solid black;
+      cursor: pointer;
+      transition: 0.3s;
     }
   }
 
@@ -23,6 +33,15 @@
   }
 
   .user_details_account {
-    
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+    color: aliceblue;
+
+    span {
+      color: black;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
   }
 }
