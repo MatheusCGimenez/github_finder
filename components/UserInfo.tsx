@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { UserProps } from "../types/User";
 import styles from "./UserInfo.module.css";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 interface Props {
   user: UserProps | null;
+  loading: boolean;
 }
 
-const UserInfo = ({ user }: Props) => {
+const UserInfo = ({ user, loading }: Props) => {
   const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
@@ -19,6 +21,7 @@ const UserInfo = ({ user }: Props) => {
 
   return (
     <>
+      {loading && <div className={styles.loader}></div>}
       {user === null ? (
         <h1>Pesquise por algum usuário</h1>
       ) : (
